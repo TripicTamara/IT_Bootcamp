@@ -1,0 +1,50 @@
+package domacizadaci;
+
+import java.util.Scanner;
+
+public class Domaci05092019 {
+	public static void Sortiraj(double[] jacinaLjuske) {
+		for (int i = 0; i < jacinaLjuske.length; i++) {
+			double sledeci = jacinaLjuske[i];
+			int pozicija = i;
+			for (int j = i + 1; j < jacinaLjuske.length; j++) {
+
+				if (jacinaLjuske[j] > jacinaLjuske[pozicija]) {
+					sledeci = jacinaLjuske[j];
+					pozicija = j;
+				}
+			}
+			jacinaLjuske[pozicija] = jacinaLjuske[i];
+			jacinaLjuske[i] = sledeci;
+		}
+	}
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Unesite broj takmicara");
+		int brojTakmicara = s.nextInt();
+		double[] jacinaLjuske = new double[brojTakmicara];
+		double[] takmicari = new double[brojTakmicara];
+		System.out.println("Unesite jacinu ljuske");
+
+		for (int i = 0; i < brojTakmicara; i++) {
+			int redniBroj = s.nextInt();
+			jacinaLjuske[i] = s.nextDouble();
+
+			takmicari[redniBroj] = jacinaLjuske[i];
+		}
+
+		Sortiraj(jacinaLjuske);
+
+		for (int i = 0; i < brojTakmicara; i++) {
+			double jacina = jacinaLjuske[0];
+			double id = takmicari[i];
+			if (jacina == id) {
+
+				System.out.println("Pobednik je takmicar sa id brojem " + i + " sa jacinom jajeta " + jacina);
+			}
+			s.close();
+
+		}
+	}
+}
