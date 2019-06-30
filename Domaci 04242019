@@ -1,0 +1,65 @@
+package domacizadaci;
+
+import java.util.Scanner;
+
+public class Domaci04242019 {
+
+	public static void main(String[] args) {
+
+		Scanner citac = new Scanner(System.in);
+		System.out.println("Dobrodosli u servis za konobare!");
+		int id = 1;
+		int zbirPice = 0;
+		int zbirHrana = 0;
+		while (id != 0) {
+			System.out.println("Unesite id porudzbine");
+			id = citac.nextInt();
+			int rakija = 1;
+			int vinjak = 2;
+			int pivo = 3;
+			int sok = 4;
+			int gurmanska = 41;
+			int cevapi = 42;
+			int belaVesalica = 43;
+			if (id == rakija) {
+				System.out.println("Narucili ste rakiju");
+				zbirPice += 60;
+			}
+			if (id == vinjak) {
+				System.out.println("Narucili ste vinjak");
+				zbirPice += 60;
+			}
+			if (id == pivo) {
+				System.out.println("Narucili ste pivo");
+				zbirPice += 100;
+			}
+			if (id == sok) {
+				System.out.println("Narucili ste sok");
+				zbirPice += 120;
+			}
+			if (id == gurmanska) {
+				System.out.println("Narucili ste gurmansku");
+				zbirHrana += 250;
+
+			}
+			if (id == cevapi) {
+				System.out.println("Narucili ste cevape");
+				zbirHrana += 240;
+
+			}
+			if (id == belaVesalica) {
+				System.out.println("Narucili ste vesalicu");
+				zbirHrana += 290;
+			}
+		}
+
+		System.out.println("Hvala na porudzbini");
+		System.out.println("Ukupno za pice " + zbirPice + " a zarada je " + zbirPice * 0.1);
+		System.out.println("Ukupno za hranu " + zbirHrana + " a zarada je " + zbirHrana * 0.15);
+		double zaradaPice = (zbirPice * 0.1);
+		double zaradaHrana = (zbirHrana * 0.15);
+		double zarada = (zaradaPice + zaradaHrana);
+		System.out.println("Ukupna zarada je " + zarada);
+
+	}
+}
