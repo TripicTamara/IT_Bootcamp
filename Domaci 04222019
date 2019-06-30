@@ -1,0 +1,28 @@
+package domacizadaci;
+
+public class Domaci04222019 {
+
+	public static void main(String[] args) {
+
+		int r_male = 23;
+		int r_velike = 40;
+		int cenamale = 170;
+		int cenaparce = 150;
+
+		double pi = 3.14;
+
+		double m = r_male * r_male * pi;
+		double v = r_velike * r_velike * pi / 5;
+		double m1 = (m / cenamale);
+		double p1 = (v / cenaparce);
+
+		if (m1 < p1) {
+			System.out.println("Cena male pice po kvadratnom centimetru je " + m1 + " Mala pica je skuplja od parceta!");
+		}
+
+		else if (m1 > p1) {
+			System.out.println("Cena parceta pice po kvadratnom centimetru je " + p1 + " Parce pice je skuplje od male pice!");
+		}
+
+	}
+}
