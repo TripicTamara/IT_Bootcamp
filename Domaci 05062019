@@ -1,0 +1,96 @@
+package domacizadaci;
+
+import java.util.Scanner;
+
+public class Domaci05062019 {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int brojPizza = 0;
+		System.out.println("Unesite koji je dan danas");
+		String dan = s.next().toLowerCase();
+		if (dan.equals("ponedeljak") || dan.equals("utorak") || dan.equals("sreda") || dan.equals("cetvrtak")
+				|| dan.equals("petak") || dan.equals("subota") || dan.equals("nedelja")) {
+			System.out.println("Unesite broj zeljenih pizza");
+			brojPizza = s.nextInt();
+		} else {
+			while (!dan.equals("ponedeljak") && !dan.equals("utorak") && !dan.equals("sreda") && !dan.equals("cetvrtak")
+					&& !dan.equals("petak") && !dan.equals("subota") && !dan.equals("nedelja")) {
+				System.out.println("Greska u unosu, pokusajte ponovo");
+				dan = s.next().toLowerCase();
+			}
+			System.out.println("Unesite broj zeljenih pizza");
+			brojPizza = s.nextInt();
+
+			int id_cap = 2;
+			int id_pep = 3;
+			int id_ves = 5;
+			int brojac = 0;
+			double suma = 0, sum = 0;
+			System.out.println("Unesite id brojeve zeljenih pizza");
+
+			while (brojac < brojPizza) {
+				boolean porudzbina = true;
+				int idpizza = s.nextInt();
+				brojac++;
+				if (brojac == 4) {
+					suma = 0;
+					System.out.println("Cetvrta pizza je gratis!");
+				}
+
+				/* capricoza */ else if (idpizza == id_cap && (dan.equals("cetvrtak") || dan.equals("Cetvrtak"))) {
+					suma = 320 - (320 * 0.1);
+					System.out.println("Narucili ste pizza capricosu. Danas"
+							+ "na nju imate popust od 10% i cena za narucenu picu je " + suma);
+				}
+
+				else if (idpizza == id_cap && (dan.equals("subota") || dan.equals("Subota") || dan.equals("nedelja")
+						|| dan.equals("Nedelja"))) {
+					suma = 320 - (320 * 0.15);
+					System.out.println("Narucili ste pizza capricosu. Danas" + "na sve pizze imate popust od 15% i "
+							+ "cena za narucenu picu je " + suma);
+				} else if (idpizza == id_cap
+						&& (!(dan.equals("cetvrtak") || dan.equals("Cetvrtak") || dan.equals("subota")
+								|| dan.equals("Subota") || dan.equals("nedelja") || dan.equals("Nedelja")))) {
+					suma = 320;
+					System.out.println("Narucili ste capricosu. Cena pizze je " + suma);
+				}
+
+				/* peperoni */ if (idpizza == id_pep && (dan.equals("subota") || dan.equals("Subota")
+						|| dan.equals("nedelja") || dan.equals("Nedelja"))) {
+					suma = 290 - (290 * 0.15);
+					System.out.println("Narucili ste peperoni po akcijskoj ceni" + suma);
+				} else if (idpizza == id_pep && (!(dan.equals("subota") || dan.equals("Subota") || dan.equals("nedelja")
+						|| dan.equals("Nedelja")))) {
+					suma = 290;
+					System.out.println("Narucili ste peperoni po ceni od " + suma);
+				}
+
+				/* vesuvio */ else if (idpizza == id_ves && (dan.equals("utorak") || dan.equals("Utorak"))) {
+					suma = 310 - (310 * 0.1);
+					System.out.println("Narucili ste vesuvio po akcijskoj ceni " + suma);
+				} else if (idpizza == id_ves && (dan.equals("subota") || dan.equals("Subota") || dan.equals("nedelja")
+						|| dan.equals("Nedelja"))) {
+					suma = 310 - (310 * 0.15);
+					System.out.println("Narucili ste vesuvio po akcijskoj ceni " + suma);
+				} else if (idpizza == id_ves && (!(dan.equals("utorak") || dan.equals("Utorak") || dan.equals("subota")
+						|| dan.equals("Subota") || dan.equals("nedelja") || dan.equals("Nedelja")))) {
+					suma = 310;
+					System.out.println("Narucili ste vesuvio po ceni od " + suma);
+				}
+
+				{
+					if (brojac == brojPizza)
+						;
+					sum += suma;
+					porudzbina = false;
+				}
+			}
+			{
+				System.out.println("Vas racun je " + sum);
+			}
+
+			s.close();
+		}
+	}
+}
