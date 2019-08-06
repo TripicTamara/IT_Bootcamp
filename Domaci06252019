@@ -1,0 +1,85 @@
+package slagalica;
+
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Slagalica {
+
+	public static void main(String[] args) {
+		try {
+		Scanner s = new Scanner(System.in);
+
+	
+			BufferedReader br;
+			
+				br = new BufferedReader(new FileReader("src//recnik.txt"));
+			
+			String linija = br.readLine();
+			ArrayList<String> reci = new ArrayList<String>();
+			while (linija != null) {
+				reci.add(linija);
+				linija = br.readLine();
+			}
+			br.close();
+
+			String str = "АБВГДЂЕЖЗИЈКЛЉМНЊОПРСТЋУФХЦЧЏШ";
+			char[] niz = new char[str.length()];
+			for (int i = 0; i < niz.length; i++) {
+				niz[i] = str.charAt(i);
+			}
+			char[] niz12 = new char[12];
+
+			for (int i = 0; i < 12; i++) {
+				niz12[i] = niz[(int) (Math.random() * niz.length)];
+				System.out.print(niz12[i] + " ");
+
+			}
+			System.out.println();
+			System.out.print("-----------------------");
+			System.out.println();
+
+			String str12 = "";
+			for (int i = 0; i < niz12.length; i++) {
+				str12 += niz12[i];
+			}
+			System.out.println("Unesite svoju rec");
+			String rec = s.next();
+			int brojac = 0;
+			if (rec.length() <= str12.length()) {
+			for (int i = 0; i < rec.length(); i++) {
+				for (int j = 0; j < str12.length(); j++) {
+			 if (rec.toLowerCase().charAt(i) == str12.toLowerCase().charAt(j)) {
+				for (int k = 0; k < reci.size(); k++) {
+					if (rec.equals(reci.get(k))) {
+						brojac++; break;
+								}
+
+							} 
+						
+						}
+	
+					} 
+				 
+				}
+			}
+			else System.out.println("Uneli ste nedozvoljenu rec!");
+			int poeni = brojac * 2;
+			System.out.println("Osvojili ste " + poeni + " poena!");
+			s.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		}
+
+			
+	
+			
+		
+
+}
